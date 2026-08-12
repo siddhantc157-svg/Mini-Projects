@@ -1,77 +1,69 @@
-# 🚀 Mini Project Name
+# 🎮 AI-Powered Mini Games Collection
 
-> A short description of your mini project.
-
-## 📌 Overview
-
-**Mini Project Name** is a simple project developed to demonstrate
-the concepts of **[Technology/Programming Language]**.
-
-The main purpose of this project is to **[describe what the project does]**.
+> A collection of interactive mini-games developed using Python with the help of AI-assisted development.
 
 ---
 
-## 🎯 Objectives
+## 📌 About the Project
 
-The main objectives of this project are:
+Welcome to my **AI-Powered Mini Games Collection**! 🚀
 
-- Learn and practice programming concepts
-- Understand real-world application development
-- Improve problem-solving skills
-- Work with **[technology/database/API/etc.]**
-- Build a project for academic and portfolio purposes
+This repository contains multiple mini-games that I developed while learning and practicing **Python programming, game development, problem-solving, and AI-assisted coding**.
+
+AI was used as a development assistant to help with:
+
+- 💡 Generating game ideas
+- 💻 Writing and explaining code
+- 🐛 Debugging errors
+- 🔧 Improving existing code
+- ✨ Adding new features
+- 📚 Understanding programming concepts
+
+The generated code was tested, modified, and customized during the development process.
+
+---
+
+## 🎮 Games
+
+| # | Game | Language | Status |
+|---|------|----------|--------|
+| 1 | ❌ Tic Tac Toe | Python | ✅ Completed |
+| 2 | ✊ Rock Paper Scissors | Python | ✅ Completed |
+| 3 | 🔢 Number Guessing Game | Python | ✅ Completed |
+| 4 | 🎲 Dice Rolling Game | Python | ✅ Completed |
+| 5 | 🧠 Quiz Game | Python | 🚧 In Progress |
+| 6 | 🐍 Snake Game | Python | 🚧 In Progress |
+| 7 | 🃏 Memory Game | Python | 🚧 In Progress |
+| 8 | 🚀 Space Shooter | Python | 🚧 Planned |
 
 ---
 
 ## ✨ Features
 
-- ✅ Simple and user-friendly
-- ✅ Easy to understand
-- ✅ Fast and lightweight
-- ✅ Input validation
-- ✅ Error handling
-- ✅ [Add your project feature]
-- ✅ [Add another feature]
+- 🎮 Multiple mini-games
+- 🤖 AI-assisted development
+- 🐍 Python-based games
+- 🧩 Simple and understandable code
+- 🛡️ Input validation
+- 🐛 Error handling
+- 📊 Score tracking
+- 🔄 Continuously improving projects
+- 📚 Beginner-friendly implementation
 
 ---
 
 ## 🛠️ Technologies Used
 
-| Technology | Purpose |
-|------------|---------|
-| Python | Main Programming Language |
-| HTML | Web Page Structure |
-| CSS | Web Page Styling |
-| JavaScript | Frontend Functionality |
-| SQLite/MySQL | Database |
-| Git | Version Control |
-| GitHub | Project Hosting |
+- **Python 3**
+- **AI Tools**
+- **Git**
+- **GitHub**
+- **Visual Studio Code**
 
-> Remove the technologies that are not used in your project.
-
----
-
-## 📂 Project Structure
+Some games may use additional Python libraries such as:
 
 ```text
-mini-project/
-│
-├── README.md
-├── requirements.txt
-├── .gitignore
-│
-├── src/
-│   ├── main.py
-│   ├── app.py
-│   └── utils.py
-│
-├── data/
-│   └── sample_data.csv
-│
-├── assets/
-│   └── screenshots/
-│       ├── home.png
-│       └── result.png
-│
-└── tests/
-    └── test_main.py
+pygame
+random
+time
+os
