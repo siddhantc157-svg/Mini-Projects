@@ -1,1 +1,15 @@
+import random
 
+otp = ""
+
+for i in range(6):
+    otp += str(random.randint(0, 9))
+
+print("Your OTP is:", otp)
+
+user_otp = input("Enter the OTP: ")
+
+if user_otp == otp:
+    print("Verified successfully")
+else:
+    print("Invalid OTP")
