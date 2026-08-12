@@ -1,11 +1,6 @@
-# Tic Tac Toe Game
-# 2 Player Console Version
-
-# Create the game board
 board = [" " for _ in range(9)]
 
 
-# Display the board
 def display_board():
     print()
     print(f" {board[0]} | {board[1]} | {board[2]} ")
