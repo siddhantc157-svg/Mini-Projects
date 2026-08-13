@@ -1,0 +1,234 @@
+# ==========================================
+#         MULTI QUIZ GAME
+# ==========================================
+
+quizzes = {
+    "1": {
+        "name": "Python Quiz",
+        "questions": [
+            {
+                "question": "Which language is this game written in?",
+                "options": ["Java", "Python", "C++", "HTML"],
+                "answer": "B"
+            },
+            {
+                "question": "Which symbol is used for comments in Python?",
+                "options": ["//", "#", "/*", "<!--"],
+                "answer": "B"
+            },
+            {
+                "question": "Which function is used to display output in Python?",
+                "options": ["print()", "display()", "show()", "output()"],
+                "answer": "A"
+            },
+            {
+                "question": "Which data type stores True or False?",
+                "options": ["String", "Integer", "Boolean", "Float"],
+                "answer": "C"
+            }
+        ]
+    },
+
+    "2": {
+        "name": "Computer Networking Quiz",
+        "questions": [
+            {
+                "question": "Which device connects different networks?",
+                "options": ["Switch", "Hub", "Router", "Repeater"],
+                "answer": "C"
+            },
+            {
+                "question": "Which device mainly operates at Layer 2?",
+                "options": ["Router", "Switch", "Gateway", "Repeater"],
+                "answer": "B"
+            },
+            {
+                "question": "What does LAN stand for?",
+                "options": [
+                    "Large Area Network",
+                    "Local Area Network",
+                    "Long Area Network",
+                    "Linked Area Network"
+                ],
+                "answer": "B"
+            },
+            {
+                "question": "Which address identifies a network interface?",
+                "options": [
+                    "IP Address",
+                    "URL",
+                    "MAC Address",
+                    "DNS"
+                ],
+                "answer": "C"
+            }
+        ]
+    },
+
+    "3": {
+        "name": "General Knowledge Quiz",
+        "questions": [
+            {
+                "question": "What is the capital of India?",
+                "options": ["Mumbai", "New Delhi", "Pune", "Bengaluru"],
+                "answer": "B"
+            },
+            {
+                "question": "Which planet is known as the Red Planet?",
+                "options": ["Earth", "Venus", "Mars", "Jupiter"],
+                "answer": "C"
+            },
+            {
+                "question": "How many days are there in a week?",
+                "options": ["5", "6", "7", "8"],
+                "answer": "C"
+            },
+            {
+                "question": "Which is the largest ocean?",
+                "options": [
+                    "Atlantic Ocean",
+                    "Indian Ocean",
+                    "Pacific Ocean",
+                    "Arctic Ocean"
+                ],
+                "answer": "C"
+            }
+        ]
+    }
+}
+
+
+# ==========================================
+# DISPLAY QUIZ CATEGORIES
+# ==========================================
+
+def show_quizzes():
+
+    print("\n==========================================")
+    print("             QUIZ CATEGORIES")
+    print("==========================================")
+
+    for key, quiz in quizzes.items():
+        print(f"{key}. {quiz['name']}")
+
+    print("Q. Quit")
+
+
+# ==========================================
+# PLAY QUIZ
+# ==========================================
+
+def play_quiz(quiz):
+
+    score = 0
+    total_questions = len(quiz["questions"])
+
+    print("\n==========================================")
+    print(f"          {quiz['name']}")
+    print("==========================================")
+
+    for number, question in enumerate(quiz["questions"], start=1):
+
+        print(f"\nQuestion {number}/{total_questions}")
+        print(question["question"])
+
+        # Display options
+        letters = ["A", "B", "C", "D"]
+
+        for i, option in enumerate(question["options"]):
+            print(f"{letters[i]}. {option}")
+
+        # Get answer
+        while True:
+
+            user_answer = input("\nYour answer (A/B/C/D): ").upper().strip()
+
+            if user_answer in letters:
+                break
+
+            print("❌ Invalid input! Please enter A, B, C, or D.")
+
+        # Check answer
+        if user_answer == question["answer"]:
+
+            print("✅ Correct!")
+            score += 1
+
+        else:
+
+            correct_index = letters.index(question["answer"])
+            correct_answer = question["options"][correct_index]
+
+            print("❌ Wrong!")
+            print(f"Correct answer: {question['answer']}. {correct_answer}")
+
+    # Final result
+    percentage = (score / total_questions) * 100
+
+    print("\n==========================================")
+    print("              QUIZ RESULT")
+    print("==========================================")
+
+    print(f"Score      : {score}/{total_questions}")
+    print(f"Percentage : {percentage:.2f}%")
+
+    if percentage == 100:
+        print("🏆 Excellent! Perfect score!")
+
+    elif percentage >= 75:
+        print("🎉 Great job!")
+
+    elif percentage >= 50:
+        print("👍 Good effort!")
+
+    else:
+        print("📚 Keep practicing!")
+
+    print("==========================================")
+
+
+# ==========================================
+# MAIN PROGRAM
+# ==========================================
+
+def main():
+
+    print("\n==========================================")
+    print("          🎮 MULTI QUIZ GAME")
+    print("==========================================")
+
+    while True:
+
+        show_quizzes()
+
+        choice = input("\nChoose a quiz: ").upper().strip()
+
+        if choice == "Q":
+
+            print("\nThanks for playing! 👋")
+            break
+
+        if choice in quizzes:
+
+            play_quiz(quizzes[choice])
+
+            again = input(
+                "\nDo you want to choose another quiz? (Y/N): "
+            ).upper().strip()
+
+            if again != "Y":
+
+                print("\nThanks for playing! 👋")
+                break
+
+        else:
+
+            print("❌ Invalid choice! Please select a quiz from the menu.")
+
+
+# ==========================================
+# START GAME
+# ==========================================
+
+if __name__ == "__main__":
+    main()
