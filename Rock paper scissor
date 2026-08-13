@@ -1,0 +1,99 @@
+def correct_choice(choice):
+    choice = choice.lower().strip()
+
+    # Remove spaces
+    choice = choice.replace(" ", "")
+
+    # Common spellings / mistakes
+    rock_words = [
+        "rock",
+        "rok",
+        "rokc",
+        "rocck",
+        "rockk"
+    ]
+
+    paper_words = [
+        "paper",
+        "papper",
+        "papor",
+        "pape",
+        "papr"
+    ]
+
+    scissors_words = [
+        "scissors",
+        "scissor",
+        "scisor",
+        "scissr",
+        "scisor",
+        "scisors"
+    ]
+
+    if choice in rock_words:
+        return "rock"
+
+    elif choice in paper_words:
+        return "paper"
+
+    elif choice in scissors_words:
+        return "scissors"
+
+    else:
+        return None
+
+
+def find_winner(player1, player2):
+
+    if player1 == player2:
+        return "tie"
+
+    elif (
+        (player1 == "rock" and player2 == "scissors")
+        or
+        (player1 == "paper" and player2 == "rock")
+        or
+        (player1 == "scissors" and player2 == "paper")
+    ):
+        return "player1"
+
+    else:
+        return "player2"
+
+
+# Main Game
+print("=================================")
+print("   ROCK PAPER SCISSORS - 2 PLAYER")
+print("=================================")
+
+player1_input = input("\nPlayer 1: ").strip()
+player2_input = input("Player 2: ").strip()
+
+player1 = correct_choice(player1_input)
+player2 = correct_choice(player2_input)
+
+# Check Player 1 input
+if player1 is None:
+    print("\n❌ Player 1 entered an invalid choice.")
+
+# Check Player 2 input
+elif player2 is None:
+    print("\n❌ Player 2 entered an invalid choice.")
+
+else:
+
+    print("\n---------------------------------")
+    print("Player 1:", player1)
+    print("Player 2:", player2)
+    print("---------------------------------")
+
+    winner = find_winner(player1, player2)
+
+    if winner == "tie":
+        print("🤝 It's a TIE!")
+
+    elif winner == "player1":
+        print("🏆 Player 1 WINS!")
+
+    else:
+        print("🏆 Player 2 WINS!")
