@@ -31,7 +31,7 @@ The generated code was tested, modified, and customized during the development p
 | 2 | ✊ Rock Paper Scissors | Python | ✅ Completed |
 | 3 | 🔢 Number Guessing Game | Python | ✅ Completed |
 | 4 | 🎲 Dice Rolling Game | Python | ✅ Completed |
-| 5 | 🧠 Quiz Game | Python | 🚧 In Progress |
+| 5 | 🧠 Quiz Game | Python | ✅ Completed |
 | 6 | 🐍 Snake Game | Python | 🚧 In Progress |
 | 7 | 🃏 Memory Game | Python | 🚧 In Progress |
 | 8 | 🚀 Space Shooter | Python | 🚧 Planned |
