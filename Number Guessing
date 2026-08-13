@@ -1,0 +1,125 @@
+# ==========================================
+#     HUMAN-LIKE NUMBER GUESSING GAME
+# ==========================================
+
+def get_feedback():
+    while True:
+        feedback = input(
+            "\nIs my guess HIGHER, LOWER, or CORRECT? "
+        ).lower().strip()
+
+        if feedback in ["higher", "h"]:
+            return "higher"
+
+        elif feedback in ["lower", "l"]:
+            return "lower"
+
+        elif feedback in ["correct", "c", "yes", "y"]:
+            return "correct"
+
+        else:
+            print("❌ Please enter:")
+            print("   H = Higher")
+            print("   L = Lower")
+            print("   C = Correct")
+
+
+def main():
+
+    print("==========================================")
+    print("      🤖 HUMAN-LIKE NUMBER GUESSER")
+    print("==========================================")
+
+    print("\nThink of a number between 1 and 100.")
+    print("Don't tell me your number!")
+    print("\nI will try to guess it.")
+
+    input("\nPress ENTER when you have chosen your number...")
+
+    # Possible range
+    minimum = 1
+    maximum = 100
+
+    attempts = 0
+
+    while minimum <= maximum:
+
+        attempts += 1
+
+        # Computer makes an intelligent guess
+        guess = (minimum + maximum) // 2
+
+        print("\n------------------------------------------")
+        print(f"🤔 My guess is: {guess}")
+        print(f"🔍 Possible range: {minimum} - {maximum}")
+        print(f"🎯 Attempt: {attempts}")
+
+        feedback = get_feedback()
+
+        # --------------------------------------
+        # Correct
+        # --------------------------------------
+
+        if feedback == "correct":
+
+            print("\n==========================================")
+            print("🎉 I GOT IT!")
+            print("==========================================")
+
+            print(f"Your number was: {guess}")
+            print(f"I found it in {attempts} attempts.")
+
+            if attempts <= 5:
+                print("🧠 I'm getting pretty good at this!")
+
+            elif attempts <= 7:
+                print("😎 Not bad!")
+
+            else:
+                print("😅 That took a while!")
+
+            break
+
+        # --------------------------------------
+        # User says computer's guess is higher
+        # --------------------------------------
+
+        elif feedback == "higher":
+
+            print("⬇️ Okay, I'll guess lower.")
+
+            maximum = guess - 1
+
+        # --------------------------------------
+        # User says computer's guess is lower
+        # --------------------------------------
+
+        elif feedback == "lower":
+
+            print("⬆️ Okay, I'll guess higher.")
+
+            minimum = guess + 1
+
+        # --------------------------------------
+        # Check for inconsistent answers
+        # --------------------------------------
+
+        if minimum > maximum:
+
+            print("\n❌ Something doesn't add up!")
+
+            print(
+                "Your previous answers were inconsistent."
+            )
+
+            print("Let's try again.")
+
+            break
+
+
+# ==========================================
+# START GAME
+# ==========================================
+
+if __name__ == "__main__":
+    main()
