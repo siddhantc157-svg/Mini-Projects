@@ -33,8 +33,8 @@ The generated code was tested, modified, and customized during the development p
 | 4 | 🎲 Dice Rolling Game | Python | ✅ Completed |
 | 5 | 🧠 Quiz Game | Python | ✅ Completed |
 | 6 | 🐍 Snake Game | Python | ✅ Completed |
-| 7 | 🃏 Memory Game | Python | 🚧 In Progress |
-| 8 | 🚀 Space Shooter | Python | 🚧 Planned |
+| 7 | 🃏 Memory Game | Python | ✅ Completed |
+| 8 | 🚀 Space Shooter | Python | ✅ Completed |
 
 ---
 
