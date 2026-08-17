@@ -1,7 +1,3 @@
-# ==========================================
-#     HUMAN-LIKE NUMBER GUESSING GAME
-# ==========================================
-
 def get_feedback():
     while True:
         feedback = input(
