@@ -1,0 +1,141 @@
+import random
+import time
+
+
+QUESTIONS = [
+    {
+        "question": "What is the capital of France?",
+        "options": ["Berlin", "Madrid", "Paris", "Rome"],
+        "answer": "Paris",
+    },
+    {
+        "question": "Which planet is known as the Red Planet?",
+        "options": ["Earth", "Mars", "Jupiter", "Venus"],
+        "answer": "Mars",
+    },
+    {
+        "question": "Who wrote 'Romeo and Juliet'?",
+        "options": ["Charles Dickens", "Mark Twain", "William Shakespeare", "Leo Tolstoy"],
+        "answer": "William Shakespeare",
+    },
+    {
+        "question": "What is the largest ocean on Earth?",
+        "options": ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean", "Pacific Ocean"],
+        "answer": "Pacific Ocean",
+    },
+    {
+        "question": "What is the chemical symbol for gold?",
+        "options": ["Ag", "Au", "Gd", "Go"],
+        "answer": "Au",
+    },
+    {
+        "question": "How many continents are there on Earth?",
+        "options": ["5", "6", "7", "8"],
+        "answer": "7",
+    },
+    {
+        "question": "Which language is primarily used for iOS app development?",
+        "options": ["Swift", "Kotlin", "Java", "C#"],
+        "answer": "Swift",
+    },
+    {
+        "question": "What is the smallest prime number?",
+        "options": ["0", "1", "2", "3"],
+        "answer": "2",
+    },
+    {
+        "question": "Which gas do plants primarily absorb for photosynthesis?",
+        "options": ["Oxygen", "Nitrogen", "Carbon Dioxide", "Hydrogen"],
+        "answer": "Carbon Dioxide",
+    },
+    {
+        "question": "In which year did World War II end?",
+        "options": ["1943", "1945", "1947", "1950"],
+        "answer": "1945",
+    },
+]
+
+LETTERS = ["A", "B", "C", "D"]
+
+
+def print_header():
+    print("=" * 50)
+    print("               WELCOME TO THE QUIZ GAME")
+    print("=" * 50)
+    print("Answer each question by typing A, B, C, or D.")
+    print("Let's begin!\n")
+
+
+def ask_question(q_num, total, question_data):
+    print(f"Question {q_num}/{total}: {question_data['question']}")
+
+    options = question_data["options"][:]
+    random.shuffle(options)
+
+    for letter, option in zip(LETTERS, options):
+        print(f"  {letter}. {option}")
+
+    correct_letter = LETTERS[options.index(question_data["answer"])]
+
+    while True:
+        user_input = input("Your answer: ").strip().upper()
+        if user_input in LETTERS[:len(options)]:
+            break
+        print(f"Please enter one of: {', '.join(LETTERS[:len(options)])}")
+
+    is_correct = user_input == correct_letter
+
+    if is_correct:
+        print("Correct!\n")
+    else:
+        print(f"Wrong! The correct answer was {correct_letter}. {question_data['answer']}\n")
+
+    time.sleep(0.5)
+    return is_correct
+
+
+def run_quiz():
+    print_header()
+
+    questions = QUESTIONS[:]
+    random.shuffle(questions)
+
+    score = 0
+    total = len(questions)
+
+    for i, q in enumerate(questions, start=1):
+        if ask_question(i, total, q):
+            score += 1
+
+    show_results(score, total)
+
+
+def show_results(score, total):
+    percentage = (score / total) * 100
+    print("=" * 50)
+    print("                  QUIZ COMPLETE!")
+    print("=" * 50)
+    print(f"You scored {score} out of {total} ({percentage:.1f}%)\n")
+
+    if percentage == 100:
+        print("Perfect score! Outstanding!")
+    elif percentage >= 80:
+        print("Great job! You really know your stuff.")
+    elif percentage >= 50:
+        print("Not bad! A little more practice and you'll ace it.")
+    else:
+        print("Keep practicing, you'll improve next time!")
+
+
+def main():
+    while True:
+        run_quiz()
+        again = input("\nPlay again? (y/n): ").strip().lower()
+        if again != "y":
+            print("\nThanks for playing! Goodbye.")
+            break
+        print("\n")
+
+
+if __name__ == "__main__":
+    main()
