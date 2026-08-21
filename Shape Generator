@@ -1,0 +1,104 @@
+import turtle
+
+screen = turtle.Screen()
+screen.title("Python Multiple Shapes Generator")
+screen.bgcolor("white")
+
+pen = turtle.Turtle()
+pen.speed(5)
+pen.pensize(3)
+
+def draw_square(size):
+    for _ in range(4):
+        pen.forward(size)
+        pen.right(90)
+
+def draw_rectangle(width, height):
+    for _ in range(2):
+        pen.forward(width)
+        pen.right(90)
+        pen.forward(height)
+        pen.right(90)
+
+def draw_triangle(size):
+    for _ in range(3):
+        pen.forward(size)
+        pen.left(120)
+
+def draw_circle(radius):
+    pen.circle(radius)
+
+def draw_polygon(sides, size):
+    angle = 360 / sides
+
+    for _ in range(sides):
+        pen.forward(size)
+        pen.right(angle)
+
+def draw_star(size):
+    for _ in range(5):
+        pen.forward(size)
+        pen.right(144)
+
+def draw_spiral():
+    for i in range(50):
+        pen.forward(i * 5)
+        pen.right(91)
+
+def show_menu():
+    print("\n========== SHAPE GENERATOR ==========")
+    print("1. Square")
+    print("2. Rectangle")
+    print("3. Triangle")
+    print("4. Circle")
+    print("5. Pentagon")
+    print("6. Hexagon")
+    print("7. Star")
+    print("8. Spiral")
+    print("9. Exit")
+    print("=====================================")
+
+while True:
+
+    show_menu()
+
+    choice = input("Enter your choice (1-9): ")
+
+    pen.clear()
+    pen.penup()
+    pen.goto(0, 0)
+    pen.setheading(0)
+    pen.pendown()
+
+    if choice == "1":
+        draw_square(150)
+
+    elif choice == "2":
+        draw_rectangle(200, 100)
+
+    elif choice == "3":
+        draw_triangle(180)
+
+    elif choice == "4":
+        draw_circle(100)
+
+    elif choice == "5":
+        draw_polygon(5, 120)
+
+    elif choice == "6":
+        draw_polygon(6, 100)
+
+    elif choice == "7":
+        draw_star(200)
+
+    elif choice == "8":
+        draw_spiral()
+
+    elif choice == "9":
+        print("Thank you for using Shape Generator!")
+        break
+
+    else:
+        print("Invalid choice. Please select 1-9.")
+
+screen.mainloop()
